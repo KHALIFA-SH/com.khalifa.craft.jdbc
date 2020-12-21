@@ -9,7 +9,32 @@ public class JDBCExecutor  {
         try {
             Connection connection = dcm.getConnection();
             CustomerDAO customerDAO = new CustomerDAO(connection);
-            Customer customer = new Customer();
+            Customer customer = customerDAO.findById(1100);
+            System.out.println(customer.getFirstName()+ " " + customer.getLastName() + " "+ customer.getEmail());
+            customer.setEmail("ajenafilek@gmail.com");
+            customer = customerDAO.update(customer);
+            System.out.println(customer.getFirstName()+ " " + customer.getLastName() + " "+ customer.getEmail());
+            /*Customer customer = new Customer();
+            customer.setFirstName("Jhon");
+            customer.setLastName("Adams");
+            customer.setEmail("jadams@wh.gov");
+            customer.setAddress("1234 SE AVE");
+            customer.setCity("Arlington");
+            customer.setState("VA");
+            customer.setPhone("(555) 555-9845");
+            customer.setZipCode("01234");
+
+            Customer dbCustomer = customerDAO.create(customer);
+            System.out.println(dbCustomer);
+            dbCustomer = customerDAO.findById(dbCustomer.getId());
+            System.out.println(dbCustomer);
+            dbCustomer.setEmail("john.adams@wh.gov");
+            dbCustomer = customerDAO.update(dbCustomer);
+            System.out.println(dbCustomer);
+            customerDAO.delete(dbCustomer.getId());*/
+            /*Customer customer = customerDAO.findById(1101);
+            System.out.println(customer.getFirstName()+ " " + customer.getLastName());*/
+            /* This was used to create a customerCustomer customer = new Customer();
             customer.setFirstName("Khalifa");
             customer.setLastName("Shikur");
             customer.setEmail("Khalifa@gmail.com");
@@ -18,7 +43,7 @@ public class JDBCExecutor  {
             customer.setCity("WashingtonDC");
             customer.setState("DC");
             customer.setZipCode("12345");
-            customerDAO.create(customer);
+            customerDAO.create(customer);*/
         }catch (SQLException e){
             e.printStackTrace();
         }

@@ -9,7 +9,7 @@ import java.sql.Statement;
 public abstract class DataAccessObject <T extends DataTransferObject> {
     protected final Connection connection;
     protected final static String LAST_VAL = "SELECT last_value FROM ";
-    protected final static String CUSTOMER_SEQUENCE = "hp_customer_seq";
+    protected final static String CUSTOMER_SEQUENCE = "customer_id";
 
     public DataAccessObject(Connection connection){
         super();
